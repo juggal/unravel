@@ -1,27 +1,25 @@
 <template lang="html">
-  <div>
+  <b-container class="container">
     <carousel
-    autoplay
     perPage="1"
-    easing
+    navigationEnabled
     >
       <slide
         v-for="(text, i) in texts"
         v-bind:key="text"
+        class="px-3"
         >
         <b-card
           tag="article"
           style="max-width: 20rem;"
           class="mb-2 text-center"
-           bg-variant="dark"
-           text-variant="white"
-           v-bind:header="`Card  ` + parseInt(i + 1)"
+           border-variant="danger"
         >
           <b-card-text>{{text}}</b-card-text>
         </b-card>
       </slide>
     </carousel>
-  </div>
+  </b-container class="container">
 </template>
 
 <script>
@@ -31,16 +29,19 @@ export default {
     Carousel,
     Slide
   },
+  props : {
+    texts: Array
+  },
   data() {
     return {
-      texts: [
-        `Some quick example 1`,
-        `Some quick example 2`
-      ]
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
+  .container {
+    width: 20%;
+  }
+
 </style>

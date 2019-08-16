@@ -6,10 +6,10 @@
       pills card
       >
         <b-tab v-bind:title-link-class="'tab-color'" title="Clues" active>
-          <b-card-text><Cards /></b-card-text>
+          <b-card-text><Cards v-bind:texts="texts" /></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Questions">
-          <b-card-text>Tab Contents 2</b-card-text>
+          <b-card-text><Questions v-bind:questions="questions"/></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Final" disabled>
           <b-card-text>Tab Contents 2</b-card-text>
@@ -21,9 +21,23 @@
 
 <script>
 import Cards from '../components/Cards'
+import Questions from '../components/Questions'
 export default {
   components: {
-    Cards
+    Cards,
+    Questions
+  },
+  data() {
+    return {
+      texts: [
+        `Some quick example 1`,
+        `Some quick example 2`
+      ],
+      questions: [
+        `First`,
+        `second`
+      ]
+    }
   }
 }
 </script>
