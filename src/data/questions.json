@@ -1,10 +1,10 @@
 [
   {
     "active": [
-      "First"
+      {"question": "First", "options": [1, 2, 3, 4]}
     ],
     "notactive": [
-      "Second"
+      {"question": "Second", "options": [1, 2, 3, 4]}
     ]
   }
 ]
