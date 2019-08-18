@@ -1,11 +1,11 @@
 <template lang="html">
   <b-container class="container">
     <carousel
-    perPage="1"
+    v-bind:perPage="1"
     navigationEnabled
     >
       <slide
-        v-for="(text, i) in texts"
+        v-for="(text, i) in clues[round - 1].unlocked"
         v-bind:key="text"
         class="px-3"
         >
@@ -24,17 +24,23 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';
+import { mapState } from 'vuex';
 export default {
   components: {
     Carousel,
     Slide
   },
-  props : {
-    texts: Array
+  props:{
+    round : Number
   },
   data() {
     return {
     }
+  },
+  computed: {
+    ...mapState([
+      'clues'
+    ])
   }
 }
 </script>
