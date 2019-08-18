@@ -1,0 +1,26 @@
+[
+  {
+    "unlocked": [
+      "Some quick example 1",
+      "Some quick example 2"
+    ],
+    "locked": [
+      "new card 2",
+      "new card 1"
+    ]
+  },{
+    "unlocked": [
+
+    ],
+    "locked": [
+
+    ]
+  },{
+    "unlocked": [
+
+    ],
+    "locked": [
+
+    ]
+  }
+]
