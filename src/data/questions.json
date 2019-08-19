@@ -1,10 +1,9 @@
 [
   {
-    "active": [
-      {"question": "First", "options": [1, 2, 3, 4]}
-    ],
-    "notactive": [
-      {"question": "Second", "options": [1, 2, 3, 4]}
+    "unlocked": [
+      "First",
+      "Second",
+      "Third"
     ]
   }
 ]
