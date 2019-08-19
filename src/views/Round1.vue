@@ -60,8 +60,9 @@ export default {
     },
     checkAnswer: function () {
       if(this.selected === this.answers[this.round - 1].ans[this.finalQ - 1] && this.selected != '') {
-        this.setPoints({operation: 'add', value:100})
-        this.toast(true, 'Congratulations', `You've Completed Round 1`, 'success');
+        this.setPoints({operation: 'add', value:100});
+        alert("Congratulations, You've Completed Round 1");
+        this.$router.push('rules2');
         console.log("Right");
       }else {
         console.log("Wrong");
@@ -77,7 +78,7 @@ export default {
     toast: function (append = false, title, msg, color) {
         this.$bvToast.toast(msg, {
           title: title,
-          autoHideDelay: 3000,
+          autoHideDelay: 2000,
           appendToast: append,
           variant: color,
           solid: true

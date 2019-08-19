@@ -9,7 +9,7 @@
           <b-card-text><Cards v-bind:round="round" /></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Questions">
-          <b-card-text><Questions v-bind:round="round" v-bind:addPoint="addPoints" v-bind:deductPoint="deductPoints" v-bind:noPoint="noPoints" v-bind:final="changeFinal" v-bind:finalIndex="finalQ" v-bind:addPts="40" v-bind:subPts="20" v-bind:retryVal="true" v-bind:timer="true"/></b-card-text>
+          <b-card-text><Questions v-bind:round="round" v-bind:final="changeFinal" v-bind:finalIndex="finalQ" v-bind:addPts="40" v-bind:subPts="20" v-bind:retryVal="true" v-bind:timer="true"/></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Final" v-bind:disabled="final">
           <b-card-text>{{questions[round - 1].unlocked[finalQ - 1]}}</b-card-text>
@@ -42,7 +42,6 @@ export default {
   data() {
     return {
       selected: '',
-      points: 50,
       final: true,
       round: 1,
       finalQ: 3
@@ -67,7 +66,7 @@ export default {
     toast: function (append = false, title, msg, color) {
         this.$bvToast.toast(msg, {
           title: title,
-          autoHideDelay: 3000,
+          autoHideDelay: 2000,
           appendToast: append,
           variant: color,
           solid: true
@@ -78,7 +77,8 @@ export default {
     ...mapState({
       questions: state => state.questions,
       options: state => state.options,
-      answers: state => state.answers
+      answers: state => state.answers,
+      points: state => state.points
     })
   }
 }

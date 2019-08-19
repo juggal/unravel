@@ -59,7 +59,7 @@ export default {
     toast: function (append = false, title, msg, color) {
         this.$bvToast.toast(msg, {
           title: title,
-          autoHideDelay: 3000,
+          autoHideDelay: 2000,
           appendToast: append,
           variant: color,
           solid: true
@@ -98,7 +98,7 @@ export default {
         ++(this.qno);
         console.log("Next question");
       }
-      this.$refs.countdown.start();
+      // this.$refs.countdown.start();
     }
   }
 }
