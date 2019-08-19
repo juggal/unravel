@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Round1 from './views/Round1.vue'
 import Rules1 from './views/Rules1.vue'
+import Rules2 from './views/Rules2.vue'
+import Round2 from './views/Round2.vue'
 
 Vue.use(Router)
 
@@ -13,17 +15,27 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
+      component: Login
     },
     {
       path: '/round1',
       name: 'round1',
-      component: () => import('./views/Round1.vue')
+      component: Round1
     },
     {
       path: '/rules1',
       name: 'rules1',
-      component: () => import('./views/Rules1.vue')
+      component: Rules1
+    },
+    {
+      path: '/round2',
+      name: 'round2',
+      component: Round2
+    },
+    {
+      path: '/rules2',
+      name: 'rules2',
+      component: Rules2
     }
   ]
 })
