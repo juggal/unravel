@@ -10,7 +10,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
+Vue.component(VueCountdown.name, VueCountdown);
 
 Vue.config.productionTip = false
 
