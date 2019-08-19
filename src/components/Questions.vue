@@ -11,7 +11,7 @@
         v-model="selected"
         v-bind:value="option">
         {{option}}</b-form-radio>
-        <b-button class="btn" variant="outline-dark" @click="checkAnswer(); finalQ();">Check</b-button>
+        <b-button class="btn" variant="outline-dark" @click="checkAnswer">Check</b-button>
         <b-button class="btn" variant="outline-dark" @click="hint">Hints</b-button>
       </b-form-group>
     </b-card>
@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       selected: '',
-      qno: 1
+      qno: 1,
+      flag: false
     }
   },
   props: {
@@ -32,7 +33,8 @@ export default {
     addPoint: Function,
     deductPoint: Function,
     noPoint: Function,
-    final: Function
+    final: Function,
+    finalIndex: Number
   },
   computed: {
     ...mapState({
@@ -45,38 +47,37 @@ export default {
     ...mapActions([
       'updateFlag'
     ]),
-    test: function() {
-      this.updateFlag({val:true, round:0});
+    newCard: function() {
+      this.updateFlag({val:true, round:this.round - 1});
       console.log("new card added");
     },
-    newUnlocked: function (append = false) {
-        this.$bvToast.toast('New Card Unlocked', {
-          title: 'Congratulations',
+    toast: function (append = false, title, msg, color) {
+        this.$bvToast.toast(msg, {
+          title: title,
           autoHideDelay: 3000,
           appendToast: append,
-          variant: 'success',
+          variant: color,
           solid: true
       })
     },
-    finalUnlocked: function (append = false) {
-        this.$bvToast.toast('Final Q Unlocked', {
-          title: 'Congratulations',
-          autoHideDelay: 3000,
-          appendToast: append,
-          variant: 'success',
-          solid: true
-      })
+    nextQ: function () {
+      if(this.qno < (this.index - 1)) {
+        ++(this.qno);
+      }
     },
     checkAnswer: function () {
-      if(this.selected === this.answers[this.round - 1].ans[this.qno - 1] && this.selected != '') {
-        this.qno++;
-        this.addPoint(10);
-        this.test();
-        this.newUnlocked(true);
-        console.log("Right " + "Qno:" + this.qno);
+      if(this.finalIndex === this.qno) {
+        this.finalQ();
       }else {
-        console.log("Wrong");
-        this.qno++;
+        if(this.selected === this.answers[this.round - 1].ans[this.qno - 1] && this.selected != '') {
+          this.addPoint(10); //add points
+          this.newCard(); //add new card on correct answer
+          this.toast(true, 'Congratulations', 'New card unlocked', 'success'); // display success message
+          console.log("Right " + "Qno:" + this.qno);
+        }else {
+          console.log("Wrong");
+        }
+        this.nextQ(); // increments qno
       }
     },
     hint: function () {
@@ -87,10 +88,8 @@ export default {
       }
     },
     finalQ: function () {
-      if(this.qno === 3) {
         this.final(false);
-        this.finalUnlocked(true);
-      }
+        this.toast(true, 'Congratulations', 'Final Question Unlocked', 'success');
     }
   }
 }

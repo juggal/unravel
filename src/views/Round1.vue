@@ -9,7 +9,7 @@
           <b-card-text><Cards v-bind:round="round" /></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Questions">
-          <b-card-text><Questions v-bind:round="round" v-bind:addPoint="addPoints" v-bind:deductPoint="deductPoints" v-bind:noPoint="noPoints" v-bind:final="changeFinal"/></b-card-text>
+          <b-card-text><Questions v-bind:round="round" v-bind:addPoint="addPoints" v-bind:deductPoint="deductPoints" v-bind:noPoint="noPoints" v-bind:final="changeFinal" v-bind:finalIndex="finalQ"/></b-card-text>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Final" v-bind:disabled="final">
           <b-card-text>{{questions[round - 1].unlocked[finalQ]}}</b-card-text>
@@ -47,7 +47,7 @@ export default {
       final: true,
       round: 1,
       retry: 0,
-      finalQ: 2
+      finalQ: 3
     }
   },
   methods: {
