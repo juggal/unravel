@@ -2,6 +2,9 @@
   <b-container
   class="container"
   >
+  <countdown class="timer" :time="5 * 1000" @end="clockEnd" ref="countdown" v-if="timer">
+    <template  slot-scope="props">{{ props.minutes }}:{{ props.seconds }}</template>
+  </countdown>
     <b-card>
       <b-card-text>{{questions[round - 1].unlocked[qno - 1]}}</b-card-text>
       <b-form-group>
@@ -25,31 +28,33 @@ export default {
     return {
       selected: '',
       qno: 1,
-      flag: false
+      retry: 0
     }
   },
   props: {
     round: Number,
-    addPoint: Function,
-    deductPoint: Function,
-    noPoint: Function,
     final: Function,
-    finalIndex: Number
+    finalIndex: Number,
+    retryVal: Boolean,
+    addPts: Number,
+    subPts: Number,
+    timer: Boolean
   },
   computed: {
     ...mapState({
       questions: state => state.questions,
       options: state => state.options,
-      answers: state => state.answers
+      answers: state => state.answers,
+      points: state => state.points
     })
   },
   methods: {
-    ...mapActions([
-      'updateFlag'
-    ]),
+    ...mapActions({
+      updateFlag: 'updateFlag',
+      setPoints: 'setPoints'
+    }),
     newCard: function() {
       this.updateFlag({val:true, round:this.round - 1});
-      console.log("new card added");
     },
     toast: function (append = false, title, msg, color) {
         this.$bvToast.toast(msg, {
@@ -60,36 +65,40 @@ export default {
           solid: true
       })
     },
-    nextQ: function () {
-      if(this.qno < (this.index - 1)) {
-        ++(this.qno);
-      }
-    },
     checkAnswer: function () {
-      if(this.finalIndex === this.qno) {
-        this.finalQ();
-      }else {
         if(this.selected === this.answers[this.round - 1].ans[this.qno - 1] && this.selected != '') {
-          this.addPoint(10); //add points
+          this.setPoints({operation:'add', value:this.addPts}); //add points
           this.newCard(); //add new card on correct answer
           this.toast(true, 'Congratulations', 'New card unlocked', 'success'); // display success message
           console.log("Right " + "Qno:" + this.qno);
         }else {
-          console.log("Wrong");
+          console.log("Wrong " + "Qno:" + this.qno);
         }
-        this.nextQ(); // increments qno
-      }
+        ++(this.qno); // increments qno
+        this.finalQ()
     },
     hint: function () {
-      if(this.noPoint() >= 5) {
-        this.deductPoint(5);
+      if(this.points >= 5) {
+        this.setPoints({operation:"sub", value:5});
       }else {
         console.log("Hints insufficient");
       }
     },
     finalQ: function () {
+      if(this.qno === 3) {
         this.final(false);
         this.toast(true, 'Congratulations', 'Final Question Unlocked', 'success');
+      }
+    },
+    clockEnd: function() {
+      if(confirm("Press OK to retry!")) {
+        this.setPoints({operation: "add", value:this.subPts});
+        console.log("Retry");
+      }else {
+        ++(this.qno);
+        console.log("Next question");
+      }
+      this.$refs.countdown.start();
     }
   }
 }
