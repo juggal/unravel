@@ -9,12 +9,18 @@
         <li>Giving right ansers boosts the score</li>
         <li>Final question doesn't have any hints though there will be a retry with a heavy price for it. Two retries possible</li>
       </ul>
+      <b-button @click="start" variant="outline-info">START</b-button>
     </b-container>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    start: function (){
+      this.$router.push('round1');
+    }
+  }
 }
 </script>
 
