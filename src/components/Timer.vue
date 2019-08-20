@@ -13,11 +13,12 @@ export default {
       time: null,
       minutes: null,
       seconds: null,
-      totalTime: this.Time
+      duration: this.Time
     }
   },
   props: {
-    Time: Number
+    Time: Number,
+    again: Boolean
   },
   methods: {
     startTimer: function () {
@@ -25,34 +26,38 @@ export default {
     },
     stopTimer: function() {
       clearInterval(this.timer);
-      // this.reset(this.again);
     },
     padTime: function(time) {
       return (time < 10 ? '0' : '') + time;
     },
     countdown: function() {
-      this.minutes = parseInt(this.totalTime / 60, 10);
-      this.seconds = parseInt(this.totalTime % 60, 10);
-      if(this.totalTime > -1){
-        this.totalTime--;
-      }else {
-        this.stopTimer();
+      if(this.duration <= 0){
         this.$emit('end');
+        this.reset();
       }
+      this.minutes = parseInt(this.duration / 60, 10);
+      this.seconds = parseInt(this.duration % 60, 10);
+      --(this.duration);
+    },
+    reset: function() {
+        console.log("Restarting timer");
+        clearInterval(this.timer);
+        this.minutes = null;
+        this.seconds = null;
+        this.duration = this.Time;
+        this.startTimer();
     }
-    // reset: function() {
-    //   if(this.again) {
-    //     console.log("Restarting timer");
-    //     minutes = null;
-    //     seconds = null;
-    //     this.again = false
-    //     this.startTimer();
-    //   }
-    // }
   },
   mounted() {
     this.$emit('start');
     this.startTimer();
+  },
+  watch: {
+    again: function() {
+        if(this.again) {
+        this.reset();
+      }
+    }
   }
 }
 </script>
