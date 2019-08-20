@@ -1,8 +1,6 @@
 <template lang="html">
   <div>
-    <countdown class="timer" :time="60 * 60 * 1000" @end="clockEnd" ref="countdown">
-      <template slot-scope="props">{{ props.minutes }}:{{ props.seconds }}</template>
-    </countdown>
+    <Timer :Time="5" @end="clockEnd" />
     <b-card no-body>
       <b-tabs
       active-nav-item-class="btn-info"
@@ -26,7 +24,9 @@
             <b-button class="btn" variant="outline-dark" @click="checkAnswer">Check</b-button>
           </b-form-group>
         </b-tab>
-        <b-tab v-bind:title-link-class="'tab-color'" :title="points"></b-tab>
+        <template slot="tabs-end">
+          <li class="point">{{ points }}</li>
+        </template>
       </b-tabs>
     </b-card>
   </div>
@@ -35,12 +35,14 @@
 <script>
 import Cards from '../components/Cards'
 import Questions from '../components/Questions'
+import Timer from '../components/Timer'
 import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     Cards,
-    Questions
+    Questions,
+    Timer
   },
   data() {
     return {
@@ -109,5 +111,9 @@ export default {
   }
   .timer {
     font-size: 50px;
+  }
+  .point {
+    font-size:1.4rem;
+    padding: 0.2rem 0 0 53rem;
   }
 </style>
