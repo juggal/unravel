@@ -2,10 +2,8 @@
   <b-container
   class="container"
   >
-  <countdown class="timer" :time="5 * 1000" @end="clockEnd" ref="countdown" v-if="timer">
-    <template  slot-scope="props">{{ props.minutes }}:{{ props.seconds }}</template>
-  </countdown>
-    <b-card>
+    <Timer :Time="5" v-if="timer" @end="clockEnd" />
+    <b-card v-if="qno != finalIndex">
       <b-card-text>{{questions[round - 1].unlocked[qno - 1]}}</b-card-text>
       <b-form-group>
         <b-form-radio
@@ -22,13 +20,18 @@
 </template>
 
 <script>
+import Timer from './Timer';
 import { mapState, mapActions } from 'vuex';
 export default {
+  components:{
+    Timer
+  },
   data() {
     return {
       selected: '',
       qno: 1,
-      retry: 0
+      retry: 0,
+      run: false
     }
   },
   props: {
@@ -94,11 +97,11 @@ export default {
       if(confirm("Press OK to retry!")) {
         this.setPoints({operation: "add", value:this.subPts});
         console.log("Retry");
+        this.run = true;
       }else {
         ++(this.qno);
         console.log("Next question");
       }
-      // this.$refs.countdown.start();
     }
   }
 }
