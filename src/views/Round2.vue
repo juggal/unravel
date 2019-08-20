@@ -23,7 +23,9 @@
             <b-button class="btn" variant="outline-dark" @click="checkAnswer">Check</b-button>
           </b-form-group>
         </b-tab>
-        <b-tab v-bind:title-link-class="'tab-color'" :title="points"></b-tab>
+        <template slot="tabs-end">
+          <li class="point">{{ points }}</li>
+        </template>
       </b-tabs>
     </b-card>
   </div>
@@ -57,7 +59,8 @@ export default {
     checkAnswer: function () {
       if(this.selected === this.answers[this.round - 1].ans[this.finalQ - 1] && this.selected != '') {
         this.setPoints({operation: 'add', value:200})
-        this.toast(true, 'Congratulations', `You've Completed Round 2`, 'success');
+        alert("Congratulations, You've Completed Round 1");
+        // this.$router.push('rules2');
         console.log("Right");
       }else {
         console.log("Wrong");
@@ -90,5 +93,9 @@ export default {
   }
   .btn {
     margin-left: 1%;
+  }
+  .point {
+    font-size:1.4rem;
+    padding: 0.2rem 0 0 53rem;
   }
 </style>
