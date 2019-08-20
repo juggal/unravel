@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <Timer :Time="5" @end="clockEnd" />
+    <Timer :Time="30 * 60" @end="clockEnd" />
     <b-card no-body>
       <b-tabs
       active-nav-item-class="btn-info"

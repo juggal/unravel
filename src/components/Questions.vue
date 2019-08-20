@@ -1,9 +1,10 @@
 <template lang="html">
   <b-container
   class="container"
+  v-if="qno != finalIndex"
   >
-    <Timer :Time="5" v-if="timer" @end="clockEnd" />
-    <b-card v-if="qno != finalIndex">
+  <Timer :Time="20" v-if="timer" @end="clockEnd"  :again="flag" />
+    <b-card>
       <b-card-text>{{questions[round - 1].unlocked[qno - 1]}}</b-card-text>
       <b-form-group>
         <b-form-radio
@@ -31,7 +32,7 @@ export default {
       selected: '',
       qno: 1,
       retry: 0,
-      run: false
+      flag: null
     }
   },
   props: {
@@ -73,12 +74,15 @@ export default {
           this.setPoints({operation:'add', value:this.addPts}); //add points
           this.newCard(); //add new card on correct answer
           this.toast(true, 'Congratulations', 'New card unlocked', 'success'); // display success message
+          this.flag = false;
+          this.flag = true;
           console.log("Right " + "Qno:" + this.qno);
         }else {
           console.log("Wrong " + "Qno:" + this.qno);
         }
         ++(this.qno); // increments qno
-        this.finalQ()
+        this.finalQ();
+        // this.flag = false;
     },
     hint: function () {
       if(this.points >= 5) {
@@ -95,9 +99,10 @@ export default {
     },
     clockEnd: function() {
       if(confirm("Press OK to retry!")) {
-        this.setPoints({operation: "add", value:this.subPts});
+        this.setPoints({operation: "sub", value:this.subPts});
+        this.flag = false;
+        this.flag = true;
         console.log("Retry");
-        this.run = true;
       }else {
         ++(this.qno);
         console.log("Next question");
