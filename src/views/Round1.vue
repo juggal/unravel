@@ -102,7 +102,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
   .tab-color{
     color: black;
   }

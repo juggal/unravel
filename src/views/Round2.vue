@@ -46,7 +46,8 @@ export default {
       selected: '',
       final: true,
       round: 1,
-      finalQ: 3
+      finalQ: 3,
+      retry: 0
     }
   },
   methods: {
@@ -59,11 +60,18 @@ export default {
     checkAnswer: function () {
       if(this.selected === this.answers[this.round - 1].ans[this.finalQ - 1] && this.selected != '') {
         this.setPoints({operation: 'add', value:200})
-        alert("Congratulations, You've Completed Round 1");
-        // this.$router.push('rules2');
+        alert("Congratulations, You've Completed Round 2");
+        this.$router.push('rules3');
         console.log("Right");
       }else {
         console.log("Wrong");
+        if(this.retry >= 1) {
+          this.setPoints({operation: 'sub', value:75})
+          this.toast(true, 'Oops', '75 points have been deducted', 'warning');
+          ++(this.retry);
+        }else {
+          ++(this.retry);
+        }
       }
     },
     toast: function (append = false, title, msg, color) {
@@ -87,7 +95,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
   .tab-color{
     color: black;
   }
