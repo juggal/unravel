@@ -5,6 +5,8 @@ import Round1 from './views/Round1.vue'
 import Rules1 from './views/Rules1.vue'
 import Rules2 from './views/Rules2.vue'
 import Round2 from './views/Round2.vue'
+import Rules3 from './views/Rules3.vue'
+import Round3 from './views/Round3.vue'
 
 Vue.use(Router)
 
@@ -36,6 +38,16 @@ export default new Router({
       path: '/rules2',
       name: 'rules2',
       component: Rules2
+    },
+    {
+      path: '/rules3',
+      name: 'rules',
+      component: Rules3
+    },
+    {
+      path: '/round3',
+      name: 'round3',
+      component: Round3
     }
   ]
 })
