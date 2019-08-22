@@ -3,7 +3,7 @@
   class="container"
   v-if="qno != finalIndex"
   >
-  <Timer :Time="20" v-if="timer" @end="clockEnd"  :again="flag" />
+  <Timer :Time="5" v-if="timer" @end="clockEnd"  :again="flag" />
     <b-card>
       <b-card-text>{{questions[round - 1].unlocked[qno - 1]}}</b-card-text>
       <b-form-group>
@@ -92,7 +92,7 @@ export default {
       }
     },
     finalQ: function () {
-      if(this.qno === 3) {
+      if(this.qno === this.finalIndex) {
         this.final(false);
         this.toast(true, 'Congratulations', 'Final Question Unlocked', 'success');
       }
@@ -105,6 +105,7 @@ export default {
         console.log("Retry");
       }else {
         ++(this.qno);
+        this.finalQ();
         console.log("Next question");
       }
     }
