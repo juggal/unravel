@@ -13,5 +13,8 @@ export default {
     }else if(param.operation === 'sub') {
       state.points -= param.value;
     }
+  },
+  updateInfo:  (state, param) => {
+    state.profiles[param.profno - 1].unlocked.push(state.profiles[param.profno - 1].locked.splice(param.lock, 1));
   }
 }

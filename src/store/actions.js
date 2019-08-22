@@ -3,6 +3,9 @@ export default {
     commit('setFlag', data);
   },
   setPoints: ({ commit }, param) => {
-    commit('updatePoints', param)
+    commit('updatePoints', param);
+  },
+  setInfo: ({ commit }, param) => {
+    commit('updateInfo', param);
   }
 }
