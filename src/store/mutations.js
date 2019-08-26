@@ -1,7 +1,7 @@
 export default {
   setFlag: (state, data) => {
     console.log("set flag mutation");
-    if(data.val === true && state.clues[data.round].locked.length != data.round) {
+    if(data.val === true) {
       state.clues[data.round].unlocked.push(state.clues[data.round].locked.pop());
     }
   },
@@ -15,6 +15,6 @@ export default {
     }
   },
   updateInfo:  (state, param) => {
-    state.profiles[param.profno - 1].unlocked.push(state.profiles[param.profno - 1].locked.splice(param.lock, 1));
+    state.profiles[param.profno - 1].unlocked.push(...state.profiles[param.profno - 1].locked.splice(param.lock, 1));
   }
 }

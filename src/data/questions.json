@@ -1,9 +1,19 @@
 [
   {
     "unlocked": [
-      "First",
-      "Second",
-      "Third"
+      "round1 First",
+      "round1 Second",
+      "round1 Third"
     ]
+  },
+  {
+    "unlocked": [
+      "round2 First",
+      "round2 Second",
+      "round2 Third"
+    ]
+  },
+  {
+    "unlocked": "Final Q of third round"
   }
 ]

@@ -5,5 +5,15 @@
       ["a", "b", "c", "d"],
       ["x", "y", "z", "w"]
     ]
+  },
+  {
+    "unlocked": [
+      [1, 2, 3, 4],
+      ["g", "h", "j", "k"],
+      ["p", "q", "r", "s"]
+    ]
+  },
+  {
+    "unlocked": ["option1", "option2", "option3", "option4"]
   }
 ]

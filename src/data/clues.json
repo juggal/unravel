@@ -8,19 +8,25 @@
       "new card 2",
       "new card 1"
     ]
-  },{
+  },
+  {
     "unlocked": [
-
+      "round2 unlocked1",
+      "round2 unlocked2"
     ],
     "locked": [
-
+      "round2 locked1",
+      "round2 locked2"
     ]
-  },{
+  },
+  {
     "unlocked": [
-
+      "Unlocked card 1",
+      "Unlocked card 2"
     ],
     "locked": [
-
+      "Locked card 1",
+      "Locked card 2"
     ]
   }
 ]
