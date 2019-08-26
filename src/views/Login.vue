@@ -39,8 +39,7 @@
           placeholder="Enter Phone number"
           ></b-form-input>
 
-        <b-button class="btn" type="submit" variant="outline-success">Login</b-button>
-        <b-button class="btn" type="reset" variant="outline-danger">Reset</b-button>
+        <b-button class="btn" variant="outline-success" @click="onSubmit">Login</b-button>
 
       </b-form>
     </b-card></b-col></b-row>
@@ -54,11 +53,9 @@ export default {
   data() {
     return {
       form: {
-        id: '',
         name: '',
         email: '',
-        pno: '',
-        status: false,
+        pno: ''
       },
       users: [],
       config: {
@@ -69,45 +66,44 @@ export default {
         storageBucket: "suigeneris-91e90.appspot.com",
         messagingSenderId: "942349921706",
         appId: "1:942349921706:web:897991dea6b3a0f3"
-      }
+      },
+      db: null
     }
   },
   methods: {
     onSubmit: function() {
-      // if(this.users.includes(this.form.id)) {
-      //   console.log("Yes");
-      // }else {
-      //   console.log("False");
-      // }
-      // var usersRef = firebase.database().ref('unravel-score');
-      // usersRef.push('aur bantai');
-      // this.$router.push('round1');
+
+      //getting databse instance
+      const unravel = this.db.collection('unravel');
+      const unravelScore = this.db.collection('unravel-score');
+      const attendedProtovision = this.db.collection('Attended Protovision');
+      const attendedUnravel = this.db.collection('Attended Unravel');
+
+      //validation
+      attendedProtovision.get()
+      .then(querySnapshot => {
+        const documents = querySnapshot.docs.map(doc => doc.data())
+        //iterating over documents to check for user
+        for(let item of documents) {
+          if(item.data.name == this.form.name) {
+            console.log("User found");
+            this.$router.push('rules1');
+            break;
+          }else {
+              this.$bvToast.toast(`Please enter your details correctly`, {
+              title: 'Login Failed',
+              autoHideDelay: 4000,
+              variant: 'warning',
+              appendToast: true
+            })
+          }
+        }
+      });
     }
   },
   mounted: function () {
-    console.log("Mounted");
-
     //creating firebase instance
-    const db = firebase.initializeApp(this.config).firestore();
-
-    //getting databse instance
-    const unravel = db.collection('unravel');
-    const unravelScore = db.collection('unravel-score');
-    const attendedProtovision = db.collection('Attended Protovision');
-
-    //validation
-    attendedProtovision.get()
-    .then(querySnapshot => {
-      const documents = querySnapshot.docs.map(doc => doc.data())
-      // for(var item in documents) {
-        // if(item.data.name === "Amar") {
-        //   console.log("User found");
-        //   break;
-        // }
-        // console.log(item.data);
-      // }
-      console.log(documents);
-    })
+      this.db = firebase.initializeApp(this.config).firestore();
 
   }
 }
