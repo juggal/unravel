@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   data() {
     return {
@@ -57,9 +58,18 @@ export default {
         name: '',
         email: '',
         pno: '',
-        status: false
+        status: false,
       },
-      users: []
+      users: [],
+      config: {
+        apiKey: "AIzaSyCY7pMmolq71sF5uSdZtCrXdSuRe4j9L2M",
+        authDomain: "suigeneris-91e90.firebaseapp.com",
+        databaseURL: "https://suigeneris-91e90.firebaseio.com",
+        projectId: "suigeneris-91e90",
+        storageBucket: "suigeneris-91e90.appspot.com",
+        messagingSenderId: "942349921706",
+        appId: "1:942349921706:web:897991dea6b3a0f3"
+      }
     }
   },
   methods: {
@@ -69,11 +79,36 @@ export default {
       // }else {
       //   console.log("False");
       // }
-      this.$router.push('round1');
+      // var usersRef = firebase.database().ref('unravel-score');
+      // usersRef.push('aur bantai');
+      // this.$router.push('round1');
     }
   },
   mounted: function () {
     console.log("Mounted");
+
+    //creating firebase instance
+    const db = firebase.initializeApp(this.config).firestore();
+
+    //getting databse instance
+    const unravel = db.collection('unravel');
+    const unravelScore = db.collection('unravel-score');
+    const attendedProtovision = db.collection('Attended Protovision');
+
+    //validation
+    attendedProtovision.get()
+    .then(querySnapshot => {
+      const documents = querySnapshot.docs.map(doc => doc.data())
+      // for(var item in documents) {
+        // if(item.data.name === "Amar") {
+        //   console.log("User found");
+        //   break;
+        // }
+        // console.log(item.data);
+      // }
+      console.log(documents);
+    })
+
   }
 }
 </script>

@@ -10,6 +10,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 
+import { firestorePlugin } from 'vuefire'
+Vue.use(firestorePlugin)
+
 Vue.config.productionTip = false
 
 new Vue({
