@@ -24,7 +24,7 @@
           </b-form-group>
         </b-tab>
         <template slot="tabs-end">
-          <li class="point">{{ points }}</li>
+          <li class="point ml-auto">{{ points }}</li>
         </template>
       </b-tabs>
     </b-card>
@@ -45,7 +45,7 @@ export default {
     return {
       selected: '',
       final: true,
-      round: 1,
+      round: 2,
       finalQ: 3,
       retry: 0
     }
@@ -104,6 +104,6 @@ export default {
   }
   .point {
     font-size:1.4rem;
-    padding: 0.2rem 0 0 53rem;
+    padding: 0.2rem 0 0 0;
   }
 </style>
