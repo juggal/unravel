@@ -7,5 +7,8 @@ export default {
   },
   setInfo: ({ commit }, param) => {
     commit('updateInfo', param);
+  },
+  setStory: ({ commit }, param) => {
+    commit('updateStory', param)
   }
 }

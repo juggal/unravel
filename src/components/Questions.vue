@@ -3,7 +3,7 @@
   class="container"
   v-if="qno != finalIndex"
   >
-  <Timer :Time="5" v-if="timer" @end="clockEnd"  :again="flag" />
+  <!-- <Timer :Time="5 * 60" v-if="timer" @end="clockEnd"  :again="flag" /> -->
     <b-card>
       <b-card-text>{{questions[round - 1].unlocked[qno - 1]}}</b-card-text>
       <b-form-group>
@@ -14,7 +14,7 @@
         v-bind:value="option">
         {{option}}</b-form-radio>
         <b-button class="btn" variant="outline-dark" @click="checkAnswer">Check</b-button>
-        <b-button class="btn" variant="outline-dark" @click="hint">Hints</b-button>
+        <b-button class="btn" variant="outline-dark" @click="hinted">Hints</b-button>
       </b-form-group>
     </b-card>
   </b-container>
@@ -49,13 +49,15 @@ export default {
       questions: state => state.questions,
       options: state => state.options,
       answers: state => state.answers,
-      points: state => state.points
+      points: state => state.points,
+      hints: state => state.hints
     })
   },
   methods: {
     ...mapActions({
       updateFlag: 'updateFlag',
-      setPoints: 'setPoints'
+      setPoints: 'setPoints',
+      setStory: 'setStory'
     }),
     newCard: function() {
       this.updateFlag({val:true, round:this.round - 1});
@@ -63,7 +65,7 @@ export default {
     toast: function (append = false, title, msg, color) {
         this.$bvToast.toast(msg, {
           title: title,
-          autoHideDelay: 2000,
+          autoHideDelay: 6000,
           appendToast: append,
           variant: color,
           solid: true
@@ -73,6 +75,7 @@ export default {
         if(this.selected === this.answers[this.round - 1].ans[this.qno - 1] && this.selected != '') {
           this.setPoints({operation:'add', value:this.addPts}); //add points
           this.newCard(); //add new card on correct answer
+          this.setStory({val: true, round: this.round}); //add new part of story
           this.toast(true, 'Congratulations', 'New card unlocked', 'success'); // display success message
           this.flag = false;
           this.flag = true;
@@ -84,9 +87,10 @@ export default {
         this.finalQ();
         // this.flag = false;
     },
-    hint: function () {
+    hinted: function () {
       if(this.points >= 5) {
         this.setPoints({operation:"sub", value:5});
+        this.toast(true, 'Hint', `${this.hints[this.round - 1][this.qno - 1]}`, 'info');
       }else {
         console.log("Hints insufficient");
       }

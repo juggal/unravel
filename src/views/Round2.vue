@@ -1,12 +1,16 @@
 <template lang="html">
   <div>
+    <Timer :Time="45 * 60" @end="clockEnd" />
     <b-card no-body>
       <b-tabs
       active-nav-item-class="btn-info"
       pills card
       >
-        <b-tab v-bind:title-link-class="'tab-color'" title="Clues" v-bind:active="true">
+        <!-- <b-tab v-bind:title-link-class="'tab-color'" title="Clues" v-bind:active="true">
           <b-card-text><Cards v-bind:round="round" /></b-card-text>
+        </b-tab> -->
+        <b-tab v-bind:title-link-class="'tab-color'" title="Story" v-bind:active="true">
+          <Story :round="2"/>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Questions">
           <b-card-text><Questions v-bind:round="round" v-bind:final="changeFinal" v-bind:finalIndex="finalQ" v-bind:addPts="40" v-bind:subPts="20" v-bind:retryVal="true" v-bind:timer="true"/></b-card-text>
@@ -24,7 +28,7 @@
           </b-form-group>
         </b-tab>
         <template slot="tabs-end">
-          <li class="point ml-auto">{{ points }}</li>
+          <li class="point ml-auto">Points:{{ points }}</li>
         </template>
       </b-tabs>
     </b-card>
@@ -34,19 +38,23 @@
 <script>
 import Cards from '../components/Cards'
 import Questions from '../components/Questions'
+import Story from '../components/Story'
+import Timer from '../components/Timer'
 import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     Cards,
-    Questions
+    Questions,
+    Story,
+    Timer
   },
   data() {
     return {
       selected: '',
       final: true,
       round: 2,
-      finalQ: 3,
+      finalQ: 6,
       retry: 0
     }
   },
@@ -59,8 +67,8 @@ export default {
     },
     checkAnswer: function () {
       if(this.selected === this.answers[this.round - 1].ans[this.finalQ - 1] && this.selected != '') {
-        this.setPoints({operation: 'add', value:200})
-        alert("Congratulations, You've Completed Round 2");
+        this.setPoints({operation: 'add', value:200});
+        alert("Congratulations, You've Completed Game");
         this.$router.push('rules3');
         console.log("Right");
       }else {
@@ -82,6 +90,10 @@ export default {
           variant: color,
           solid: true
       })
+    },
+    clockEnd: function () {
+      alert("Your time is over");
+      this.$router.push('/');
     }
   },
   computed: {

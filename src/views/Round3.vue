@@ -97,7 +97,8 @@ export default {
   methods: {
     ...mapActions({
       setInfo: 'setInfo',
-      updateFlag: 'updateFlag'
+      updateFlag: 'updateFlag',
+      'setPoints': 'setPoints'
     }),
     changeFinal: function(val) {
       this.final = val;
@@ -106,7 +107,6 @@ export default {
       if(this.selected === this.answers[3 - 1].ans && this.selected != '') {
         alert("Congratulations, You've Completed Round 3");
         this.$router.push('/');
-        console.log("Right");
       }else {
         console.log("Wrong");
         if(this.retry >= 1) {

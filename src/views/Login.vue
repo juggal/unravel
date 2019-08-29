@@ -7,13 +7,13 @@
     >
       <b-form @submit="onSubmit">
 
-          <b-form-input
+          <!-- <b-form-input
             id="input-1"
             v-model="form.id"
             type="text"
             required
             placeholder="Enter ID"
-          ></b-form-input>
+          ></b-form-input> -->
 
           <b-form-input
             id="input-2"
@@ -80,12 +80,12 @@ export default {
       const attendedUnravel = this.db.collection('Attended Unravel');
 
       //validation
-      attendedProtovision.get()
+      attendedUnravel.get()
       .then(querySnapshot => {
         const documents = querySnapshot.docs.map(doc => doc.data())
         //iterating over documents to check for user
         for(let item of documents) {
-          if(item.data.name == this.form.name) {
+          if(item.data.name == this.form.name && item.data.email === this.form.email && item.data.number === this.form.pno) {
             console.log("User found");
             this.$router.push('rules1');
             break;

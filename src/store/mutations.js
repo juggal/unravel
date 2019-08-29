@@ -16,5 +16,11 @@ export default {
   },
   updateInfo:  (state, param) => {
     state.profiles[param.profno - 1].unlocked.push(...state.profiles[param.profno - 1].locked.splice(param.lock, 1));
+  },
+  updateStory: (state, param) => {
+    console.log("update story mutation");
+    if(param.val === true) {
+      state.story[param.round - 1].unlocked.push(state.story[param.round - 1].locked.pop());
+    }
   }
 }

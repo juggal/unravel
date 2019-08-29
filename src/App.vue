@@ -1,13 +1,13 @@
 <template>
 <div id="app">
   <div id="nav">
-    <router-link to="/">Login</router-link> |
+    <!-- <router-link to="/">Login</router-link> |
     <router-link to="/rules1">Rules1</router-link> |
     <router-link to="/round1">Round1</router-link> |
     <router-link to="/rules2">Rules2</router-link> |
-    <router-link to="/round2">Round2</router-link> |
-    <router-link to="/rules3">Rules3</router-link> |
-    <router-link to="/round3">Round3</router-link> 
+    <router-link to="/round2">Round2</router-link>  -->
+    <!-- <router-link to="/rules3">Rules3</router-link> |
+    <router-link to="/round3">Round3</router-link>  -->
   </div>
   <router-view />
 </div>

@@ -4,6 +4,8 @@ import options from '../data/options.json'
 import answers from '../data/answers.json'
 import profiles from '../data/profiles.json'
 import evidence from '../data/evidence.json'
+import story from '../data/story.json'
+import hints from '../data/hints.json'
 let points = 50;
 
 export default {
@@ -13,5 +15,7 @@ export default {
   answers,
   profiles,
   evidence,
+  story,
+  hints,
   points
 }

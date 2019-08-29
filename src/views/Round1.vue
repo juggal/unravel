@@ -6,8 +6,11 @@
       active-nav-item-class="btn-info"
       pills card
       >
-        <b-tab v-bind:title-link-class="'tab-color'" title="Clues" v-bind:active="true">
+        <!-- <b-tab v-bind:title-link-class="'tab-color'" title="Clues" v-bind:active="true">
           <b-card-text><Cards v-bind:round="round" /></b-card-text>
+        </b-tab> -->
+        <b-tab v-bind:title-link-class="'tab-color'" title="Story" v-bind:active="true">
+          <Story :round="1"/>
         </b-tab>
         <b-tab v-bind:title-link-class="'tab-color'" title="Questions">
           <b-card-text><Questions v-bind:round="round" v-bind:final="changeFinal" v-bind:finalIndex="finalQ" v-bind:retryVal="true" v-bind:addPts="10"/></b-card-text>
@@ -25,7 +28,7 @@
           </b-form-group>
         </b-tab>
         <template slot="tabs-end">
-          <li class="point ml-auto">{{ points }}</li>
+          <li class="point ml-auto">Points:{{ points }}</li>
         </template>
       </b-tabs>
     </b-card>
@@ -36,13 +39,15 @@
 import Cards from '../components/Cards'
 import Questions from '../components/Questions'
 import Timer from '../components/Timer'
+import Story from '../components/Story'
 import { mapState, mapActions } from 'vuex'
 
 export default {
   components: {
     Cards,
     Questions,
-    Timer
+    Timer,
+    Story
   },
   data() {
     return {
@@ -50,12 +55,13 @@ export default {
       final: true,
       round: 1,
       retry: 0,
-      finalQ: 3
+      finalQ: 4
     }
   },
   methods: {
     ...mapActions({
-      setPoints: 'setPoints'
+      setPoints: 'setPoints',
+      setStory: 'setStory'
     }),
     changeFinal: function(val) {
       this.final = val;

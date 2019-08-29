@@ -7,7 +7,9 @@
         <li>Right answer unlocks a flash card with more details and false answer does nothing</li>
         <li>There will be a hint for every question but taking hints reduces score</li>
         <li>Giving right ansers boosts the score</li>
-        <li>Final question doesn't have any hints though there will be a retry with a heavy price for it. Two retries possible</li>
+        <li>Final question doesn't have any hints though there will be a retry with a heavy price for it</li>
+        <li>Don't exit the fullscreen if caught you will be disqualified</li>
+        <li>Inspect element is prohibited</li>
       </ul>
       <b-button @click="start" variant="outline-info">START</b-button>
     </b-container>
