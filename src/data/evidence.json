@@ -1,11 +1,23 @@
 {
   "evdnc": [
-    "evidence 1",
-    "evidence 2",
-    "evidence 3"
+    "Window is open",
+    "There's a charred note which read as 'Uhphpehu Gdlyb Dupywurgj'(Classic ceaser cipher) which reminds her of the old case",
+    "The door was locked from inside",
+    "Glass found which hints that has been drugged",
+    "His gun is found intact",
+    "His clock stopped at 1:15, that the probable time of murder must 12 - 2 am",
+    "Multiple stab wounds, 12 in total, varying impacts. The impacts are varying and seems like the victim was stabbed from various angles",
+    "A badge of the express employee is found",
+    "A handkerchief with 'H' initial is found"
   ],
   "tounlock": [
-    "card",
+    "charprof",
+    "charprof",
+    "charprof",
+    "charprof",
+    "charprof",
+    "charprof",
+    "charprof",
     "charprof",
     "charprof"
   ]

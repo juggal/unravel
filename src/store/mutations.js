@@ -15,7 +15,12 @@ export default {
     }
   },
   updateInfo:  (state, param) => {
-    state.profiles[param.profno - 1].unlocked.push(...state.profiles[param.profno - 1].locked.splice(param.lock, 1));
+    console.log("Update info mutation");
+    for(let i = param.profno - 1; i < param.profno + 1; i++) {
+      console.log(i);
+      state.profiles[i].unlocked.push(...state.profiles[i].locked.splice(0, state.profiles[i].locked.length));
+    }
+
   },
   updateStory: (state, param) => {
     console.log("update story mutation");

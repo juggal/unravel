@@ -1,24 +1,206 @@
-[
-  {
+[{
     "unlocked": [
-      "nihar",
-      "india",
-      "student",
-      "He is a IT guy"
+      "Samuel Edward Ratchet",
+      "The deceased",
+      "A gang leader who turned into an art dealer and tries to make his fortune from selling fake arts",
+      "He has and keeps on recieving deaths threats in the form of letters, sometimes encrypted",
+      "He keeps a gun with him always"
     ],
     "locked": [
-      "ciphexo1",
-      "bff",
-      "blah blah",
-      ""
+      "Original Identity reveled as LenFranco Casseti the murderer of Daisy Armstrong",
+      "He had flewn  away after killing Daisy and has been fugitive ever since"
     ]
   },
   {
     "unlocked": [
-
+      "Count Rudolph Adrenyi",
+      "A Hungarian by origin",
+      "He is very protective of his wife",
+      "Seems of violent nature"
     ],
     "locked": [
-
+      "He changes his wife's name to Elena on both language and passport to avoid being One of the Suspected ones being boht more trouble",
+      "Alibi: Midinight to 2am (Vouched by conductor - this does not cover period from 1 - 1:15)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Countess Helena 'Elena' Adrenyi",
+      "Wife of Count Adrenyi",
+      "Claims to be afraid of everything, takes Bristol (a drug) to keep herself alive",
+      "Seems emotional",
+      "Alibi: Midnight to 2 a.m. Took trional and slept. (Vouched for by husband. Bristol bottle in her cupboard.)"
+    ],
+    "locked": [
+      "(Real identity revealed to have maiden name Helena Goldenberg and the daughter of Linda Arden, sister of Sonia Armstrong. She claims her mother died from the shock and she is surviving somehow. But doesn’t seem like she could kill anyone from her condition.)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Princess Dragomiroff",
+      "A wealthy Russian widowed princess",
+      "Autocratic and Strong willed"
+    ],
+    "locked": [
+      "The handkerchief found in Ratchett's compartment belongs to her",
+      "Alibi: From midnight to 2 a.m. (Vouched for by conductor and maid.)",
+      "(Revealed to be a close friend of Linda Arden and Godmother of Sonia Armstrong)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Hildegarde Schmidt",
+      "Princess Dragomiroff’s maid",
+      "German origin"
+    ],
+    "locked": [
+      "The initial H could be hers.",
+      "Alibi: Midnight to 2 a.m. (Vouched for by conductor and her mistress.) Went to bed. Was aroused by conductor at 12:38 approx. and went to mistress",
+      "(Former cook in Armstrong family)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Edward Masterman",
+      "Valet to Samuel Ratchett",
+      "Doesn’t know Ratchett is Cassetti"
+    ],
+    "locked": [
+      "Alibi: From midnight to 2 a.m. (Midnight to 1:30 vouched for by Col. Arbuthnot and 1 :15 to 2 vouched for by conductor.",
+      "(Holds a grudge against Cassetti as his father was a well known advocate who spent his whole life on the Armstrong case, he thought the maid Sussanne was the murder and pursued her all the time, this wrecked his career and Cassetti is responsible for it indirectly.)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Mrs. Hubbard",
+      "Mrs. Caroline Hubbard, a brash, talkative, self-centered, and seemingly otherwise cartoonish 'American' woman."
+    ],
+    "locked": [
+      "The H from Hubbard indicates that the handkerchief could be hers",
+      "(Later revealed to be Linda Arden(stage name) the famous actress, Real name – Linda Goldenberg, Grandmother of Daisy Armstrong and mother of Helena and Sonia.)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Gretta Ohlson",
+      "Swedish by origin",
+      "An ex-nurse who left the worldly desires to be a missionary",
+      "Keeps her distance from anything sinful",
+      "Has good experience as  a matron in a missionary school"
+    ],
+    "locked": [
+      "Alibi: From midnight to 2 a.m. (Vouched for by Mary Debenham.) Note. - Was last to see Ratchett alive",
+      "(Found out to be the nurse for Daisy)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Pierre Michel",
+      "The conductor of the wagon who stood guard at night"
+    ],
+    "locked": [
+      "Alibi: From midnight to 2 a.m. (Seen by Elsa in corridor at same time as voice spoke from Ratchett's compartment at 12:37. From 1 a.m. to 1:16 vouched for by other two conductors.)",
+      "(Later revealed to be father of  Sussanne who committed suicide)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Mary Debenham",
+      "Mary Debenham is a young English governess who appears to fit the unhappy, uptight spinster stereotype. But in truth she is passionate and forceful",
+      "She is found out to be in love with Colonel Arbuthnot"
+    ],
+    "locked": [
+      "Mary Hermoine Debenham, her middle name makes her a suspect cause of the 'H' initial",
+      "Alibi: Midnight to 2 a.m. (Vouched for by Greta Ohlsson)",
+      "(Later revealed to be the Governess of Armstrong family)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Colonel Arbuthnot",
+      "A black man in love with Mary Debenham though they claim to be strangers",
+      "Claims to not know Armstrong family",
+      "A veteran from war who is also a sharpshooter and a medic",
+      "He is the one who investigates the deadbody of Ratchett"
+    ],
+    "locked": [
+      "Alibi: Midnight to 2 a.m. Takled with Masterman till 1:30. Went to own compartment and did not leave it. (Substantiated by MacQueen and conductor.)",
+      "(Later revealed to be a close friend of Armstrong, in fact Armstrong even saved his life in war once.)"
+    ]
+  },
+  {
+    "unlocked": [
+      "no info"
+    ],
+    "locked": [
+      "Sussanne",
+      "A French woman who worked as a maid for Armstrong family",
+      "She was falsely accused of the kidnapping for which she later committed suicide",
+      "Daughter of Pierre Michel"
+    ]
+  },
+  {
+    "unlocked": [
+      "Cyrus Hardman",
+      "A professor boarding the train to go to a conference which he was to address"
+    ],
+    "locked": [
+      "Alibi: Midnight to 2 a.m. Did not leave compartment. (Substantiated by MacQueen and conductor)",
+      "(After Ratchett’s death, reveals his identity to be an undercover detective who Ratchett hired for his protection)",
+      "(During interview, mentions his liking for foreign girls)",
+      "(turns out that he loved Sussanne)"
+    ]
+  },
+  {
+    "unlocked": [
+      "Antonio Forascelli",
+      "He is an Italian boarding the train",
+      "Never left his compartment",
+      "Bouc thinks he is the murderer since he is Italian"
+    ],
+    "locked": [
+      "Alibi: Midnight to 2 a.m. (Vouched for by Edward Masterman)",
+      "(Has some cold beef with Ratchett for which he murders his accomplice and sends warning letters to Forascelli)"
+    ]
+  },
+  {
+    "unlocked": [
+      "M. Bouc",
+      "M. (Monsieur) Bouc is the director of the Compagnie Internationale des Wagons-Lits, the travel company that runs the Orient Express. A stout, elderly British man, he was once a police officer"
+    ],
+    "locked": [
+      "No new info"
+    ]
+  },
+  {
+    "unlocked": [
+      "No info"
+    ],
+    "locked": [
+      "Daisy Armstrong",
+      "3 year old daughter of Toby and Sonia Armstrong",
+      "Was kidnapped and later murdered by Cassetti"
+    ]
+  },
+  {
+    "unlocked": [
+      "No info"
+    ],
+    "locked": [
+      "Sonia Amrstrong",
+      "Mother of Daisy Armstrong",
+      "She turns out to be pregnant at the time of Daisy’s death",
+      "She goes into premature labour because of the shock and ends up dead"
+    ]
+  },
+  {
+    "unlocked": [
+      "No info"
+    ],
+    "locked": [
+      "Colonel Armstrong",
+      "A war veteran",
+      "Kills himself after the death of his wife and daughter"
     ]
   }
 ]

@@ -17,16 +17,14 @@
                 >
                 <b-card
                   tag="article"
-                  style="max-width: 15rem"
+                  style="max-width: 25rem"
                   class="mb-2 text-left"
                   border-variant="dark"
                 >
                   <b-card-text>
-                    <p>Name : {{ info.unlocked[0] }}</p>
-                    <p>Country : {{ info.unlocked[1] }}</p>
-                    <p>Designation : {{ info.unlocked[2] }}</p>
-                    <p>Description : {{ info.unlocked[3] }}</p>
-                    <!-- <p>Relation with killer : {{ info.unlocked[4] }}</p> -->
+                    <p
+                    v-for="i in info.unlocked"
+                    >{{i}}</p>
                   </b-card-text>
                 </b-card>
               </slide>
@@ -34,8 +32,12 @@
           </b-container>
         </b-tab>
 
-        <b-tab v-bind:title-link-class="'tab-color'" title="Clues">
-          <b-card-text><Cards v-bind:round="round" /></b-card-text>
+        <b-tab v-bind:title-link-class="'tab-color'" title="Past Mystery">
+          <p>Remember Daisy Armstrong(answer of the morse code)</p>
+          <p>Decrypting the code will unlock this paragraph</p>
+          <p>Colonel Armstrong and his wife had a 3 year old daughter Daisy. She was kidnapped one day from her crib and later killed</p>
+          <p>Even though the colonel was ready to pay the ransom, he still finds her deadbody at the decided place. He had asked Elsa to work on this case and to bring him justice.</p>
+          <p>But days later he and his wife both killed themselves. So the case remained unsolved. The suspect was found out to be one named Cassetti</p>
         </b-tab>
 
         <b-tab v-bind:title-link-class="'tab-color'" title="Evidence">
@@ -44,6 +46,8 @@
             v-for="(item, i) in evidence.evdnc"
             :key="item"
             @click="unlock(evidence.tounlock[i], i)"
+            :disabled="group[i]"
+            variant="warning"
             >
             {{ item  }}
           </b-list-group-item>
@@ -91,7 +95,9 @@ export default {
       profileNo: 1,
       finalQ: 3,
       retry: 0,
-      round: 3
+      round: 3,
+      profno: 1,
+      group: []
     }
   },
   methods: {
@@ -132,9 +138,11 @@ export default {
         this.updateFlag({val:true, round:(this.round - 1)});
         this.toast(true, 'Congratulations', 'New Card Unlocked', 'success');
       }else if(type === 'charprof') {
-        this.setInfo({profno:1 , lock:2});
+        this.setInfo({profno:this.profno});
+        this.profno += 2;
         this.toast(true, 'Congratulations', 'Character Profile Updated', 'info');
       }
+      this.group[ival] = true;
       console.log(`${ival}`);
     }
   },

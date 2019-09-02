@@ -68,7 +68,7 @@ export default {
     checkAnswer: function () {
       if(this.selected === this.answers[this.round - 1].ans[this.finalQ - 1] && this.selected != '') {
         this.setPoints({operation: 'add', value:200});
-        alert("Congratulations, You've Completed Game");
+        alert("Congratulations, You've Completed Round2");
         this.$router.push('rules3');
         console.log("Right");
       }else {

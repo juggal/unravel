@@ -11,7 +11,8 @@
         v-for="(option, i) in options[round - 1].unlocked[qno - 1]"
         v-bind:key="option"
         v-model="selected"
-        v-bind:value="option">
+        v-bind:value="option"
+        plain>
         {{option}}</b-form-radio>
         <b-button class="btn" variant="outline-dark" @click="checkAnswer">Check</b-button>
         <b-button class="btn" variant="outline-dark" @click="hinted">Hints</b-button>
@@ -76,7 +77,7 @@ export default {
           this.setPoints({operation:'add', value:this.addPts}); //add points
           this.newCard(); //add new card on correct answer
           this.setStory({val: true, round: this.round}); //add new part of story
-          this.toast(true, 'Congratulations', 'New card unlocked', 'success'); // display success message
+          this.toast(true, 'Congratulations', 'New story unlocked', 'success'); // display success message
           this.flag = false;
           this.flag = true;
           console.log("Right " + "Qno:" + this.qno);
